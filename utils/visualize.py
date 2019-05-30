@@ -4,11 +4,11 @@ from matplotlib.colors import ListedColormap
 
 parsing_annos = [
     '0, background', '1, skin', '2, left eyebrow', '3, right eyebrow', 
-    '4, left eye', '5, right eye', '6, glasses', '7, left ear', '8, right ear', '9, earings',
+    '4, left eye', '5, right eye', '7, left ear', '8, right ear', '9, earings',
     '10, nose', '11, mouth', '12, upper lip', '13, lower lip', 
     '14, neck', '15, neck_l', '16, cloth', '17, hair', '18, hat'
 ]
-
+# , '6, glasses'
 # https://matplotlib.org/tutorials/colors/colormap-manipulation.html
 # https://stackoverflow.com/questions/14777066/matplotlib-discrete-colorbar
 def show_parsing_with_annos(data):
@@ -27,8 +27,8 @@ def show_parsing_with_annos(data):
                    [255, 255, 0], [255, 255, 85], [255, 255, 170],
                    [255, 0, 255], [255, 85, 255], [255, 170, 255],
                    [0, 255, 255], [85, 255, 255], [170, 255, 255]]
-    #new_cmap = ListedColormap(new_colors)
-    new_cmap = part_colors(new_colors)
+    new_cmap = ListedColormap(new_colors)
+    # new_cmap = part_colors(new_colors)
 
     # set limits .5 outside true range
     mat = ax.matshow(data, cmap=new_cmap, vmin=-0.5, vmax=18.5)
