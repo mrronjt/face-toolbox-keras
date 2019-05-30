@@ -17,8 +17,19 @@ def show_parsing_with_annos(data):
     cmap = plt.get_cmap('gist_ncar', len(parsing_annos))
     new_colors = cmap(np.linspace(0, 1, len(parsing_annos)))
     new_colors[0, :] = np.array([0, 0, 0, 1.])
-    new_cmap = ListedColormap(new_colors)
-    
+
+    part_colors = [[255, 0, 0], [255, 85, 0], [255, 170, 0],
+                   [255, 0, 85], [255, 0, 170],
+                   [0, 255, 0], [85, 255, 0], [170, 255, 0],
+                   [0, 255, 85], [0, 255, 170],
+                   [0, 0, 255], [85, 0, 255], [170, 0, 255],
+                   [0, 85, 255], [0, 170, 255],
+                   [255, 255, 0], [255, 255, 85], [255, 255, 170],
+                   [255, 0, 255], [255, 85, 255], [255, 170, 255],
+                   [0, 255, 255], [85, 255, 255], [170, 255, 255]]
+    #new_cmap = ListedColormap(new_colors)
+    new_cmap = part_colors(new_colors)
+
     # set limits .5 outside true range
     mat = ax.matshow(data, cmap=new_cmap, vmin=-0.5, vmax=18.5)
     
